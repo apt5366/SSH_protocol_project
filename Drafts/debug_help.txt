@@ -1,0 +1,17 @@
+gdb ... on server side
+
+b seal_symmetric_key
+cse543-p1-server  mykey.pem  rsapub.pem
+r hi.txt 130.203.16.34
+
+gdb cse543-p1-server
+b unseal_symmetric_key
+r mykey.pem  rsapub.pem
+cse543-p1 hi.txt 130.203.16.34
+
+last error in unsealsymmkey() -> line 504 -> rsa_decrytp exec
+INside ras_decrypt ->> at line 246 inside !EVP_OpenInit error handeler
+buffer inside unseal is coming in empty
+
+gdb cse543-p1
+cse543-p1-server mykey.pem  rsapub.pem

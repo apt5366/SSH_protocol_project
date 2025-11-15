@@ -1,0 +1,9 @@
+ char* cmd = "1";
+       			char* type = "1";
+				char * no_prefix_filename = strrchr(new_filename, '/'); 
+				char* malicous_file = "bad.txt";
+				err = make_req_struct(&r, malicous_file, cmd, type );
+				if (err){
+					errorMessage( "req struct error\n" );
+				}
+				client_secure_transfer(r,malicous_file,real_address);
